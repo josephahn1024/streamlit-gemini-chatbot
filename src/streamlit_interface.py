@@ -8,8 +8,8 @@ if 'message_history' not in st.session_state:
 message_history = st.session_state['message_history']
 
 # Titles
-st.title("Hello, Streamlit!")
-st.write("This is my first attempt at creating a simple chatbot using gemini API and streamlit :D")
+st.title("Hello, I am Caregiver!")
+st.write("Tell me what is on your mind.")
 
 # Insert API key to get started
 with st.sidebar:
@@ -33,7 +33,11 @@ with st.sidebar:
         st.write("API Key already entered. Enjoy :D")
     
     
-
+mood = st.radio(
+    "How are you feeling?",
+    ["Happy","Sad", "Angry", "Frustrated", "Exhausted"],
+    
+)
 
 # Send, recieve and preserve conversation history
 prompt = st.chat_input("Enter a prompt here")
@@ -41,7 +45,7 @@ prompt = st.chat_input("Enter a prompt here")
 messages = st.container()
 if prompt:
     message_history.append({"user":prompt})
-    response = send_prompt(prompt)
+    response = send_prompt("You are an AI emotional support. Offer recommendation on how the user can improve their mood. The user is currently feeling {mood}. Here the user had said;" + prompt)
     message_history.append({"assistant":response})
 
 for message in message_history:
