@@ -45,7 +45,7 @@ prompt = st.chat_input("Enter a prompt here")
 messages = st.container()
 if prompt:
     message_history.append({"user":prompt})
-    response = send_prompt(prompt)
+    response = send_prompt("You are an AI emotional support. Offer recommendation on how the user can improve their mood. The user is currently feeling {mood}. Here the user had said;" + prompt)
     message_history.append({"assistant":response})
 
 for message in message_history:
