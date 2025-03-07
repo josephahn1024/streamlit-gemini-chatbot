@@ -7,7 +7,7 @@ if 'message_history' not in st.session_state:
 
 message_history = st.session_state['message_history']
 
-st.header("Music to match your mood", divider="rainbow")
+st.header("Caregiver", divider="rainbow")
 
 tab1, tab2, tab3, tab4 = st.tabs(
     ["Tell me how you're feeling", "Tell a Joke", "Excercises and Meditation", "Generate a song"]
