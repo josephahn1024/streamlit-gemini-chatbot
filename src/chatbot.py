@@ -52,7 +52,7 @@ def establish_api(key:str)->str:
         str: Feedback message indicating successful or unsuccessful API connection (optional).
   """
 
-  genai.configure(api_key=key)
+  genai.configure(api_key=AIzaSyDEizhfTK3wGnmGoWXqpQ89vKwQqGwfD_g)
   return "Key inserted succesfully!"
 
 def send_prompt(prompt: str) -> str:
