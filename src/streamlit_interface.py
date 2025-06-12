@@ -9,6 +9,14 @@ message_history = st.session_state['message_history']
 
 # st.header("Caregiver", divider="rainbow")
 st.markdown("<h1 style='text-align: center;'>Caregiver</h1>", unsafe_allow_html=True)
+st.markdown("""
+    <style>
+        .stTextInput > div > div > input {
+            background-color: #e6f0ff !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
 
 tab1, tab2, tab3, tab4 = st.tabs(
     ["Tell me how you're feeling", "Tell a Joke", "Excercises and Meditation", "Generate a song"]
