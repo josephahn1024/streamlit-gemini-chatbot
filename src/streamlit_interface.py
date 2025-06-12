@@ -24,9 +24,21 @@ with tab1:
     situation = st.text_input(
         "Can you tell me more about what's going on?: \n\n", key="situation"
     )
-    askmood = st.select_slider(
-        "How are you feeling right now on a scale of 1 to 10? \n\n", options=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], key="askmood"
+   # askmood = st.select_slider(
+    #    "How are you feeling right now on a scale of 1 to 10? \n\n", options=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"], key="askmood"
+    #)
+    
+    emoji_scale = {
+    "1 😭": "1", "2 😢": "2", "3 🙁": "3", "4 😟": "4", "5 😐": "5",
+    "6 🙂": "6", "7 😊": "7", "8 😀": "8", "9 😄": "9", "10 🤩": "10"
+    }
+    askmood_label = st.select_slider(
+    "How are you feeling right now on a scale of 1 to 10?",
+    options=list(emoji_scale.keys()),
+    key="askmood"
     )
+    askmood = emoji_scale[askmood_label]
+
 
     
     prompt = f"""The user has come to you to make them feel better. Here is a description of how they're doing. Recommend further actions for them. If you think they should listen to music, meditate, excercise, or hear a joke, direct them to that tab. \n
