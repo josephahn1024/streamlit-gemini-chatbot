@@ -18,6 +18,8 @@ with tab1:
     st.subheader("Tell me how you're feeling")
 
     # Story premise
+    age = st.text_input("How old are you?: \n\n", key = "age")
+    
     feeling = st.text_input(
         "How are you feeling right now?: \n\n", key="feeling"
     )
@@ -41,7 +43,7 @@ with tab1:
 
 
     
-    prompt = f"""The user has come to you to make them feel better. Here is a description of how they're doing. Recommend further actions for them. If you think they should listen to music, meditate, excercise, or hear a joke, direct them to that tab. Talk like you are a therapist. \n
+    prompt = f"""The user has come to you to make them feel better. Here is a description of how they're doing. Recommend further actions for them. If you think they should listen to music, meditate, excercise, or hear a joke, direct them to that tab. Talk like you are a therapist for a {age} year old.\n
     
     
     current mood={feeling}\n
