@@ -197,7 +197,7 @@ with tab4:
     Era of music: {era} \n
     
     List the song on a line of it's own in quotation marks followed by the artists name all in bold. 
-    Write a short description on how you chose that song. Do not include the song request in your response.
+    Write a two sentence description on how you chose that song. Do not include the song request in your response.
     """
     generate_t2t = st.button("Select my song", key="generate_t2t")
     if generate_t2t and prompt:
