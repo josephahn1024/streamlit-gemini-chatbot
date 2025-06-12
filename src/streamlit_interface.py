@@ -41,7 +41,7 @@ with tab1:
 
 
     
-    prompt = f"""The user has come to you to make them feel better. Here is a description of how they're doing. Recommend further actions for them. If you think they should listen to music, meditate, excercise, or hear a joke, direct them to that tab. \n
+    prompt = f"""The user has come to you to make them feel better. Here is a description of how they're doing. Recommend further actions for them. If you think they should listen to music, meditate, excercise, or hear a joke, direct them to that tab. Talk like you are a therapist. \n
     
     
     current mood={feeling}\n
