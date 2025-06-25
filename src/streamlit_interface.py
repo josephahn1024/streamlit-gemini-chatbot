@@ -58,23 +58,29 @@ with tab1:
     current situtation={situation}\n
     current mood on a scale of 1 to 10={askmood}\n
     """
-    generate_t2t = st.button("Generate recommendation", key="generaterecommendation")
-    if generate_t2t and prompt:
-        # st.write(prompt)
-        with st.spinner(
-                 f"Generating your recommendation using AI..."
-        ):
-            first_tab1, first_tab2 = st.tabs(["Recommendation", "Prompt"])
-            with first_tab1:
-                response = send_prompt(
-                    prompt)
+generate_t2t = st.button("Generate recommendation", key="generaterecommendation")
+if generate_t2t and prompt:
+    # Set background color based on mood rating
+    mood_int = int(askmood)
+    if mood_int <= 3:
+        bg_color = "#ffe6e6"  # light red/pink
+    elif mood_int <= 6:
+        bg_color = "#fff7cc"  # light yellow
+    else:
+        bg_color = "#e6ffe6"  # light green
 
-                if response:
-                    st.write("Your recommendation:")
-                    st.write(response)
-            with first_tab2:
+    # Inject dynamic background CSS
+    st.markdown(
+        f"""
+        <style>
+            body {{
+                background-color: {bg_color};
+            }}
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 
-                st.text(prompt)
 with tab2:
     st.subheader("Tell A Joke")
     # Story premise
