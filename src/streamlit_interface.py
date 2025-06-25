@@ -19,7 +19,7 @@ st.markdown("""
 
 
 tab1, tab2, tab3, tab4 = st.tabs(
-    ["Tell me how you're feeling", "Tell a Joke", "Excercises and Meditation", "Generate a song"]
+    ["Tell me how you're feeling", "Tell a joke", "Exercises and meditation", "Generate a song"]
 )
 
 with tab1:
@@ -51,7 +51,7 @@ with tab1:
 
 
     
-    prompt = f"""The user has come to you to make them feel better. Here is a description of how they're doing. Recommend further actions for them. If you think they should listen to music, meditate, excercise, or hear a joke, direct them to that tab. Talk like you are a therapist for a {age} year old.\n
+    prompt = f"""The user has come to you to make them feel better. Here is a description of how they're doing. Recommend further actions for them. If you think they should listen to music, meditate, exercise, or hear a joke, direct them to that tab. Talk like you are a therapist for a {age} year old.\n
     
     
     current mood={feeling}\n
@@ -122,11 +122,11 @@ with tab2:
                 st.text(prompt)
 
 with tab3:
-    st.subheader("Exercise or Meditation")
+    st.subheader("Exercise or meditation")
     # Story premise
 
     askformood = st.text_input(
-        "Enter your mood for recommendation of an excercise or meditation: \n\n", key="askformood"
+        "Enter your mood for recommendation of an exercise or meditation: \n\n", key="askformood"
     )
 
     areaoftension = st.text_input(
@@ -147,15 +147,15 @@ with tab3:
     """
     generate_t2t = st.button("Generate an exercise or meditation", key="Generateanexerciseormeditation")
     if generate_t2t and prompt:
-        third_tab1, third_tab2 = st.tabs(["Excercise or meditation", "Prompt"])
+        third_tab1, third_tab2 = st.tabs(["Exercise or meditation", "Prompt"])
         with st.spinner(
-                f"Generating your excercise or meditation using AI ..."
+                f"Generating your exercise or meditation using AI ..."
         ):
             with third_tab1:
                 response = send_prompt(
                     prompt)
                 if response:
-                    st.write("Excercise or meditation:")
+                    st.write("Exercise or meditation:")
                     st.write(response)
             with third_tab2:
                 st.text(prompt)
