@@ -1,4 +1,3 @@
-import random 
 import streamlit as st
 from chatbot import send_prompt, establish_api
 
@@ -62,48 +61,39 @@ with tab1:
     
     
 
-generate_rec = st.button("Generate recommendation", key="generate_recommendation")
-if generate_rec and recommendation_prompt:
+generate_t2t = st.button("Generate recommendation", key="generaterecommendation")
+if generate_t2t and prompt:
+    # Convert mood to int and set background color
     mood_int = int(askmood)
     if mood_int <= 3:
-        bg_color = "#ffe6e6"
+        bg_color = "#ffe6e6"  # light red/pink
     elif mood_int <= 6:
-        bg_color = "#fff7cc"
+        bg_color = "#fff7cc"  # light yellow
     else:
-        bg_color = "#e6ffe6"
+        bg_color = "#e6ffe6"  # light green
 
-    st.markdown(f"""
+    # Apply CSS to Streamlit's main container
+    st.markdown(
+        f"""
         <style>
             .stApp {{
                 background-color: {bg_color};
             }}
         </style>
-    """, unsafe_allow_html=True)
-
-    # 🐾 Cheerful animal image URLs
-    animal_images = [
-        "https://images.unsplash.com/photo-1601758003122-58e5f2d1e010",  # dog
-        "https://images.unsplash.com/photo-1504208434309-cb69f4fe52b0",  # cat
-        "https://images.unsplash.com/photo-1555685812-4b943f1cb0eb",     # bunny
-        "https://images.unsplash.com/photo-1518717758536-85ae29035b6d",  # smiling golden retriever
-        "https://images.unsplash.com/photo-1546182990-dffeafbe841d"      # baby panda
-    ]
-    random_animal = random.choice(animal_images)
+        """,
+        unsafe_allow_html=True,
+    )
 
     with st.spinner("Generating your recommendation using AI..."):
-        col1, col2 = st.columns([3, 1])
-        with col1:
-            tab1_result, tab1_prompt = st.tabs(["Recommendation", "Prompt"])
-            with tab1_result:
-                response = send_prompt(recommendation_prompt)
-                if response:
-                    st.write("Your recommendation:")
-                    st.write(response)
-            with tab1_prompt:
-                st.text(recommendation_prompt)
+        first_tab1, first_tab2 = st.tabs(["Recommendation", "Prompt"])
+        with first_tab1:
+            response = send_prompt(prompt)
+            if response:
+                st.write("Your recommendation:")
+                st.write(response)
+        with first_tab2:
+            st.text(prompt)
 
-        with col2:
-            st.image(random_animal, caption="Here’s a little friend to cheer you up! 🐾", use_column_width=True)
 
 
 
