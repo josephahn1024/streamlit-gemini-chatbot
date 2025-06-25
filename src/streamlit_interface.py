@@ -60,20 +60,20 @@ with tab1:
     """
 generate_t2t = st.button("Generate recommendation", key="generaterecommendation")
 if generate_t2t and prompt:
-    # 🎨 Set background color based on mood rating
+    # Convert mood to int and set background color
     mood_int = int(askmood)
     if mood_int <= 3:
-        bg_color = "#ffe6e6"  # light red for low mood
+        bg_color = "#ffe6e6"  # light red/pink
     elif mood_int <= 6:
-        bg_color = "#fff7cc"  # light yellow for medium mood
+        bg_color = "#fff7cc"  # light yellow
     else:
-        bg_color = "#e6ffe6"  # light green for high mood
+        bg_color = "#e6ffe6"  # light green
 
-    # Inject the background color CSS into the app
+    # Apply CSS to Streamlit's main container
     st.markdown(
         f"""
         <style>
-            body {{
+            .stApp {{
                 background-color: {bg_color};
             }}
         </style>
@@ -81,7 +81,6 @@ if generate_t2t and prompt:
         unsafe_allow_html=True,
     )
 
-    # ⏳ Spinner + recommendation output
     with st.spinner("Generating your recommendation using AI..."):
         first_tab1, first_tab2 = st.tabs(["Recommendation", "Prompt"])
         with first_tab1:
@@ -91,6 +90,7 @@ if generate_t2t and prompt:
                 st.write(response)
         with first_tab2:
             st.text(prompt)
+
 
 with tab2:
     st.subheader("Tell A Joke")
