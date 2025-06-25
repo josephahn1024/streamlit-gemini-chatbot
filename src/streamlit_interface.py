@@ -93,7 +93,7 @@ with tab1:
 
 
 with tab2:
-    st.subheader("Tell A Joke")
+    st.subheader("Tell a joke")
     # Story premise
     typeofjoke = st.text_input(
         "What type of joke would you like to hear?: \n\n", key="typeofjoke")
