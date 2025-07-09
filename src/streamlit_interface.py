@@ -240,21 +240,11 @@ with tab4:
                 st.text(prompt)
 # Insert API key to get started
 with st.sidebar:
-    if "api_key" not in st.session_state:
-        st.title("Insert API Key!")
-        api_key = 'AIzaSyDEizhfTK3wGnmGoWXqpQ89vKwQqGwfD_g'
-        if api_key:
-            st.session_state["api_key"] = api_key
-            st.write(establish_api(api_key))
-        st.write("**To get started, you'll need a Gemini API key:**")
+    api_key = 'AIzaSyDEizhfTK3wGnmGoWXqpQ89vKwQqGwfD_g'
+    st.session_state["api_key"] = api_key
+    st.write(establish_api(api_key))
 
-        instructions = """
-        1. **Go to Google AI Studio:** Login and access the platform.
-        2. **Click "Get API Key":** Locate the option to obtain an API key.
-        3. **Choose Project:** Select a new or existing project for the API key.
-        4. **Copy the Key:** Once generated, copy the API key here and have fun!
-        """
+    intro = "Caregiver is a mental health chatbot that gives feedback to the users on how they can better their emotions. When a user feels down, Caregiver acts as a friendly therapist to talk about their mental struggles and ask how they can feel better. "
 
-        st.markdown(instructions)
-    else:
-        st.write("API Key already entered. Enjoy :D")
+    st.markdown(intro)
+    
