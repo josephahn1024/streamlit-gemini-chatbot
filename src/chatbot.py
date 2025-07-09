@@ -53,7 +53,7 @@ def establish_api(key:str)->str:
   """
 
   genai.configure(api_key= 'AIzaSyDEizhfTK3wGnmGoWXqpQ89vKwQqGwfD_g')
-  return "Key inserted succesfully!"
+  return "Welcome to Caregiver!"
 
 def send_prompt(prompt: str) -> str:
   """
